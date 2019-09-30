@@ -52,4 +52,54 @@ Basic Assertions:
 - Check for Response time
     - Add Assertion >> SLA >> Response SLA >> Add >> Enter time in milliseconds >> ok >> Runs Assertion
 
+Advanced Assertions:
+- Check sum of 56 and 44 through xpath
+    - Add Assertion >> Property Content >> Xpath Match >> Add >> Xpath match configuration appears
+    - Click Declare which is below xpath expressions, it will declare all the xpath's namespaces
+    - start your xpath with '//' parent node / child node / ... / your node
+    - example:
+    Response : 
+    <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <soap:Body>
+      <AddResponse xmlns="http://tempuri.org/">
+         <AddResult>100</AddResult>
+      </AddResponse>
+    </soap:Body>
+    </soap:Envelope>
+
+    Xpath will be:
+    declare namespace ns1='http://tempuri.org/';
+    declare namespace soap='http://www.w3.org/2003/05/soap-envelope';
+    //ns1:AddResponse/ns1:AddResult
+
+    Or Xpath can be as:
+    declare namespace ns1='http://tempuri.org/';
+    declare namespace soap='http://www.w3.org/2003/05/soap-envelope';
+    declare namespace xsi="http://www.w3.org/2001/XMLSchema-instance";
+    declare namespace xsd="http://www.w3.org/2001/XMLSchema";
+    //ns1:AddResponse/ns1:AddResult
+    - Provide the expected result in the expected result tab here it will be 100
+
+    Check for node existance:
+    - Add Assertion >> Property Content >> Xpath Match >> Add >> Xpath match configuration appears
+    - declare name spaces >> use exists function like 'exists(//ns1:AddResult)'
+    - in expected value section provide true if node exists else false
+    example:
+    declare namespace ns1='http://tempuri.org/';
+    declare namespace soap='http://www.w3.org/2003/05/soap-envelope';
+    exists(//ns1:AddResult)
+
+    Check number of nodes in a response:
+    - Add Assertion >> Property Content >> Xpath Match >> Add >> Xpath match configuration appears
+    - declare name spaces >> use count function like 'count(//ns1:AddResult)'
+    - in expected value section provide number that you are expecting to get
+    example:
+    declare namespace ns1='http://tempuri.org/';
+    declare namespace soap='http://www.w3.org/2003/05/soap-envelope';
+    count(//ns1:AddResult) in expected tab give 1
+
+    To Execute all test cases:
+    - Double click on testesuite and click play button, it will run all the test cases and show results
+
+
 
