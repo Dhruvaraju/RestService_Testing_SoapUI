@@ -24,4 +24,18 @@ Testing a SOAP service example of calculator service:
 - Update parameters and click on the play button on request tab, result will come in xml and a raw format.
 - XML format will give the response as soap object, while raw data will present all other details like status code few other attributes.
 
+Creating a testsuite and testcase
+- Right click on the project and click on New Test Suite name it as your projecct name
+- Right click on the test suite and click on new test case and add your functinality name
+- Under test case right click on test step and add a new step
+
+Adding test step
+- Once you click on add new test step it will show what request need to be added
+- Select Soap request and name it as you wish
+- Select the request from dropdown and check add soap response assertion and  create optional elements >> click ok
+
+Group of test steps are called test cases
+Group of test cases are called test suite
+Group of test suites are called project
+
 
