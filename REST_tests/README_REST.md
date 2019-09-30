@@ -6,4 +6,6 @@ Webservice?
 
 - REST (Representational State Transfer)
     - Rest mainly uses JSON for data transfer
-    - Details about Rest: 
+    - Follows Stateless transfer
+    - Uses standard HTTP methods GET, POST, DELETE, UPDATE, PUT
+    - 
