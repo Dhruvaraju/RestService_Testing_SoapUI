@@ -455,8 +455,8 @@
    <soap:Header/>\r
    <soap:Body>\r
       <tem:Add>\r
-         <tem:intA>4567</tem:intA>\r
-         <tem:intB>5678</tem:intB>\r
+         <tem:intA>56</tem:intA>\r
+         <tem:intB>44</tem:intB>\r
       </tem:Add>\r
    </soap:Body>\r
-</soap:Envelope>]]></con:request><con:assertion type="SOAP Response" id="4c634deb-5af6-4f18-a47b-566d94c21475"/><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:properties/></con:testSuite><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/></con:soapui-project>
+</soap:Envelope>]]></con:request><con:assertion type="Simple Contains" id="d766ed01-9fe5-415c-b1f5-de2baa287b49" name="Contains"><con:configuration><token>AddResult</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:assertion type="Simple NotContains" id="f12832a8-476b-474f-9028-7d5e948d779e" name="Not Contains"><con:configuration><token>error</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:assertion type="SOAP Response" id="01484b0d-bbd4-4f44-a2c6-f772ebe99cb7" name="SOAP Response"/><con:assertion type="Valid HTTP Status Codes" id="8078c8dc-f64d-44fc-b376-d82a37ac93f1" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="Response SLA Assertion" id="07510daa-270c-4b94-ab70-95ffaefaea27" name="Response SLA"><con:configuration><SLA>1200</SLA></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:properties/></con:testSuite><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/></con:soapui-project>

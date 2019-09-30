@@ -38,4 +38,18 @@ Group of test steps are called test cases
 Group of test cases are called test suite
 Group of test suites are called project
 
+Basic Assertions:
+- Double click on the test step to open it, you will see a '+' symbol beside the play button use it to add assertions.
+- Check for a cetain text, like check for AddResult in your response
+    - Click on add assertion >> property content >>  select contains and click add
+    - it will as for content provide text there eg: AddResult and click ok, it will run the assertion and say it got passed
+- Check for not contains a specific string eg: error
+    - Add Assertion>> Property Content >> Not Contains click add >> provide your text >> click ok
+- Check for valid SOAP message
+    -  Add Assertion >> Compliance, Status , Standards >> SOAP Response >> click add >> it verifies and provides result
+- Check for valid HTTP code
+    - Add Assertion >> Compliance Status and Standards >> Valid HTTP Status Codes >> Add >> Enter Status code >> ok >> Runs asertion
+- Check for Response time
+    - Add Assertion >> SLA >> Response SLA >> Add >> Enter time in milliseconds >> ok >> Runs Assertion
+
 
