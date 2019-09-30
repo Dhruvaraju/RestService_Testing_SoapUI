@@ -15,4 +15,13 @@ Webservice?
         - For WSDL: http://www.dneonline.com/calculator.asmx?WSDL
         - For SOAP Message - http://www.dneonline.com/calculator.asmx?op=Divide
 
+Testing a SOAP service example of calculator service:
+- Once opening SOAPUI
+- Goto File >> New SOAP Project >> A popup will appear
+- provide a project name >> enter the url for WSDL path >> check create sample requests for all operations >> click ok
+- SOAPUI will scan the wsdl and generate the requests for us.
+- Expand each operation, request will be available, double click on it and we can add paramaters and test them.
+- Update parameters and click on the play button on request tab, result will come in xml and a raw format.
+- XML format will give the response as soap object, while raw data will present all other details like status code few other attributes.
+
 
