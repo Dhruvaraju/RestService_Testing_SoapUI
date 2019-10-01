@@ -112,4 +112,68 @@ Properties project level, Test Suite Level, Test Case Level getting and setting 
     - Click on TestSuite >> custom Properties >> Add properties
     - To Access TestCase Property ${#TestCase#Property} eg: ${#TestCase#egProperty} return TestData
 
+Adding Data in reguest:
+- To add data in request nodes simple add the syntax as mentioned above
+- We can alos add data by right click in the node text area >> GetData >> which which var you want
+- SoapUi will generate the syntax for us
 
+Placing all properties data in a single place:
+- To add properties in a single, file right click on testcase >> add Step >> Properties
+- in the properties tab you can add all properties what you need 
+- Syntax for refering them ${Properties#Propertyname} or you can choose from get data.
+- We can rename the properties step to any thing eg: PropData then syntax will be ${PropData#Propertyname}
+
+Properties upload from external file:
+- Create a file with .properties as extention
+- go to custom properties >> click on load properties from external file
+- Example properties file is added in the project
+
+Properties transfer from one test step to others
+//Adding the response from one service as input in request of another service
+
+Example for Property Transfer consider the following senario:
+//We will add 2 numbers, take the sum
+//Pass the sum to substration first variable and substract 5
+// send the substraction result to Multiplication, multiply it with 5
+// Send the result to division and devide it by 10
+
+Add property transfer:
+- Right Click on Test case >> add Step >> Property transfer >> name it as you want
+- In property transfer window click + for adding a property to be transfered
+- Select the Source test step from dropdown >> select property Response >> Path Language as Xpath
+- Similarly select the target test step >> select Property ad request >> path language as xpath
+- now click on the small 'ns' to add namespace in both
+- now define xpath for the values
+
+eg response: 
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <soap:Body>
+      <AddResponse xmlns="http://tempuri.org/">
+         <AddResult>61</AddResult>
+      </AddResponse>
+   </soap:Body>
+</soap:Envelope>
+
+eg request:
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:tem="http://tempuri.org/">
+   <soap:Header/>
+   <soap:Body>
+      <tem:Subtract>
+         <tem:intA>?</tem:intA>
+         <tem:intB>?</tem:intB>
+      </tem:Subtract>
+   </soap:Body>
+</soap:Envelope>
+
+We need to add the AddRessult value from response to tem:intA in response
+eg Source Xpath:
+declare namespace soap='http://www.w3.org/2003/05/soap-envelope';
+declare namespace ns1='http://tempuri.org/';
+//ns1:AddResponse/ns1:AddResult/text()
+
+eg Target Xpath:
+declare namespace soap='http://www.w3.org/2003/05/soap-envelope';
+declare namespace ns1='http://tempuri.org/';
+//ns1:Subtract/ns1:intA
+
+****** Note: Even if we have something appended to node we need to prefix it with namespace eg: tem:intA defined as ns1:intA
