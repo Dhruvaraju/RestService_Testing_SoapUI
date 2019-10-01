@@ -100,6 +100,16 @@ Advanced Assertions:
 
     To Execute all test cases:
     - Double click on testesuite and click play button, it will run all the test cases and show results
-
+Properties project level, Test Suite Level, Test Case Level getting and setting them.
+- Project Level
+    - Click on project >> Bottom left side we will be able to see properties, beside it custom properties will be available
+    - We can add a variable and assign it a value by clciking '+'
+    - To access project level variables ${#Project#Variablename} eg: ${#Project#adminUser} will fetch Dexter in attached project
+- Test Suite Level
+    - Click on TestSuite >> custom Properties >> Add properties
+    - To Access TestSuite Property ${#TestSuite#Property} eg: ${#TestSuite#varOne} return 25
+- Test case Level
+    - Click on TestSuite >> custom Properties >> Add properties
+    - To Access TestCase Property ${#TestCase#Property} eg: ${#TestCase#egProperty} return TestData
 
 
