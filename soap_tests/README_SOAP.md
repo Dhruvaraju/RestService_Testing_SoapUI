@@ -227,6 +227,12 @@ getting project value:
  - getting project var ```project.getPropertyValue('author');```
 
  parsing xmls:
- - to parse xml in groovy we need to import a library
- - import com.eviware.soapui.support.XmlHolder;
- - Fetch content as below
+ - To parse xml in groovy we need to import a library called XmlHolder
+ - Then we need to fetch the request content
+ - Finally set the request xml cotent in xmlholder object to parse it and use it for manipulating data in it
+
+```
+import com.eviware.soapui.support.XmlHolder;
+def addXmlReqContent = testRunner.testCase.testSuite.testCases['add'].testSteps['Add'].getPropertyValue('Request');
+def addRequest = new XmlHolder(addXmlReqContent);
+```
