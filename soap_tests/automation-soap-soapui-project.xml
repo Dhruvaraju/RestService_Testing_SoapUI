@@ -309,9 +309,18 @@
 
  //Parsing xml
  import com.eviware.soapui.support.XmlHolder;
- def addXmlReqContent = testRunner.testCase.testSuite.testCases['add'].testSteps['Add'].getPropertyValue('Request');
+ import com.eviware.soapui.impl.wsdl.testcase.WsdlTestRunContext;
+ 
+ def addTestStep = testRunner.testCase.testSuite.testCases['add'].testSteps['Add']; // Fetch Add Teststep
+ def addXmlReqContent = addTestStep.getPropertyValue('Request');
  def addRequest = new XmlHolder(addXmlReqContent); // Adding xml content to xml request
  addRequest.setNodeValue('//tem:Add/tem:intA','49'); //Setting Node Values 
  addRequest.setNodeValue('//tem:Add/tem:intB','51');
  def finalAddRequestXml = addRequest.getXml();
- testRunner.testCase.testSuite.testCases['add'].testSteps['Add'].setPropertyValue('Request',finalAddRequestXml);</script></con:config></con:testStep><con:properties><con:property><con:name>initialValue</con:name><con:value>49</con:value></con:property></con:properties></con:testCase><con:properties/></con:testSuite><con:properties><con:property><con:name>author</con:name><con:value>dexter</con:value></con:property></con:properties><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/></con:soapui-project>
+ testRunner.testCase.testSuite.testCases['add'].testSteps['Add'].setPropertyValue('Request',finalAddRequestXml);
+ def contextAddTestStep = new WsdlTestRunContext(addTestStep);
+ addTestStep.run(testRunner,contextAddTestStep );
+ 
+ 
+ 
+ </script></con:config></con:testStep><con:properties><con:property><con:name>initialValue</con:name><con:value>49</con:value></con:property></con:properties></con:testCase><con:properties/></con:testSuite><con:properties><con:property><con:name>author</con:name><con:value>dexter</con:value></con:property></con:properties><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/></con:soapui-project>

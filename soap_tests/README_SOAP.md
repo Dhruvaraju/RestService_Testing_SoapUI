@@ -253,3 +253,23 @@ def addRequest = new XmlHolder(addXmlReqContent);
  def finalAddRequestXml = addRequest.getXml(); //Fetching the xml content
  testRunner.testCase.testSuite.testCases['add'].testSteps['Add'].setPropertyValue('Request',finalAddRequestXml); //Setting to request xml
 ```
+### invoking Service from Script
+- We can invoke the run mentod on test step to invoke the service.
+- testStep.run takes two inputs test runner and context > testStep.run(testRunner,  **Context of the test Step that need to be run**)
+- we need to import a class called WsdlTestRunContext ``` import com.eviware.soapui.impl.wsdl.testcase.WsdlTestRunContext ```
+- This class will fetch the context of the test step we are going to run.
+
+```
+ import com.eviware.soapui.support.XmlHolder;
+ import com.eviware.soapui.impl.wsdl.testcase.WsdlTestRunContext;
+ 
+ def addTestStep = testRunner.testCase.testSuite.testCases['add'].testSteps['Add']; // Fetch Add Teststep
+ def addXmlReqContent = addTestStep.getPropertyValue('Request');
+ def addRequest = new XmlHolder(addXmlReqContent); // Adding xml content to xml request
+ addRequest.setNodeValue('//tem:Add/tem:intA','49'); //Setting Node Values 
+ addRequest.setNodeValue('//tem:Add/tem:intB','51');
+ def finalAddRequestXml = addRequest.getXml();
+ testRunner.testCase.testSuite.testCases['add'].testSteps['Add'].setPropertyValue('Request',finalAddRequestXml);
+ def contextAddTestStep = new WsdlTestRunContext(addTestStep);
+ addTestStep.run(testRunner,contextAddTestStep );
+```
