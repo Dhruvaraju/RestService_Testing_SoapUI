@@ -243,3 +243,13 @@ import com.eviware.soapui.support.XmlHolder;
 def addXmlReqContent = testRunner.testCase.testSuite.testCases['add'].testSteps['Add'].getPropertyValue('Request');
 def addRequest = new XmlHolder(addXmlReqContent);
 ```
+### getting and setting request response values using XmlHolder
+- for setting use setNodeValue('Xpath', 'Value');
+- for fetching final xml use addRequest.getXml();
+- Send this xml as request by setting this as request property of the test case
+```
+ addRequest.setNodeValue('//tem:Add/tem:intA','49'); //Setting Node Values 
+ addRequest.setNodeValue('//tem:Add/tem:intB','51');
+ def finalAddRequestXml = addRequest.getXml(); //Fetching the xml content
+ testRunner.testCase.testSuite.testCases['add'].testSteps['Add'].setPropertyValue('Request',finalAddRequestXml); //Setting to request xml
+```

@@ -257,14 +257,14 @@
          <tem:intB>?</tem:intB>\r
       </tem:Subtract>\r
    </soapenv:Body>\r
-</soapenv:Envelope>]]></con:request><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/Subtract"/></con:call></con:operation></con:interface><con:testSuite id="877e0a21-1ef5-4377-92d3-1b0dc4117ed2" name="automation_initial"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase id="b72af266-9a29-4c8f-8a25-ed1aa01d0e7c" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="add" searchProperties="true"><con:settings/><con:testStep type="request" name="Add" id="47a69c56-31f2-47b4-92d3-7ca53bf65d26"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>CalculatorSoap12</con:interface><con:operation>Add</con:operation><con:request name="Add" id="5bc907d9-152b-4eff-992d-2b2e213a878a"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://www.dneonline.com/calculator.asmx</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:tem="http://tempuri.org/">\r
-   <soap:Header/>\r
-   <soap:Body>\r
-      <tem:Add>\r
-         <tem:intA>?</tem:intA>\r
-         <tem:intB>?</tem:intB>\r
-      </tem:Add>\r
-   </soap:Body>\r
+</soapenv:Envelope>]]></con:request><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/Subtract"/></con:call></con:operation></con:interface><con:testSuite id="877e0a21-1ef5-4377-92d3-1b0dc4117ed2" name="automation_initial"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase id="b72af266-9a29-4c8f-8a25-ed1aa01d0e7c" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="add" searchProperties="true"><con:settings/><con:testStep type="request" name="Add" id="47a69c56-31f2-47b4-92d3-7ca53bf65d26"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>CalculatorSoap12</con:interface><con:operation>Add</con:operation><con:request name="Add" id="5bc907d9-152b-4eff-992d-2b2e213a878a"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://www.dneonline.com/calculator.asmx</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:tem="http://tempuri.org/">
+   <soap:Header/>
+   <soap:Body>
+      <tem:Add>
+         <tem:intA>49</tem:intA>
+         <tem:intB>51</tem:intB>
+      </tem:Add>
+   </soap:Body>
 </soap:Envelope>]]></con:request><con:assertion type="SOAP Response" id="6db2582e-cb83-492e-9e46-60ef0b6f9cbb"/><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties><con:property><con:name>addProperty001</con:name><con:value>Test data to check access</con:value></con:property><con:property><con:name>setFromScript</con:name><con:value>IamFromScript</con:value></con:property></con:properties></con:testCase><con:testCase id="631e24f5-c9ca-49ba-b56a-ac67bb63f349" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="substract" searchProperties="true"><con:settings/><con:testStep type="request" name="substract" id="46a5726c-35ba-4772-81a0-c6ef3ec69de9"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>CalculatorSoap12</con:interface><con:operation>Subtract</con:operation><con:request name="substract" id="9ae3148b-2593-4220-97e0-058cf69c6f6e"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://www.dneonline.com/calculator.asmx</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:tem="http://tempuri.org/">\r
    <soap:Header/>\r
    <soap:Body>\r
@@ -309,8 +309,9 @@
 
  //Parsing xml
  import com.eviware.soapui.support.XmlHolder;
-
  def addXmlReqContent = testRunner.testCase.testSuite.testCases['add'].testSteps['Add'].getPropertyValue('Request');
-
- //adding xml content to xml parser
- def addRequest = new XmlHolder(addXmlReqContent);</script></con:config></con:testStep><con:properties><con:property><con:name>initialValue</con:name><con:value>49</con:value></con:property></con:properties></con:testCase><con:properties/></con:testSuite><con:properties><con:property><con:name>author</con:name><con:value>dexter</con:value></con:property></con:properties><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/></con:soapui-project>
+ def addRequest = new XmlHolder(addXmlReqContent); // Adding xml content to xml request
+ addRequest.setNodeValue('//tem:Add/tem:intA','49'); //Setting Node Values 
+ addRequest.setNodeValue('//tem:Add/tem:intB','51');
+ def finalAddRequestXml = addRequest.getXml();
+ testRunner.testCase.testSuite.testCases['add'].testSteps['Add'].setPropertyValue('Request',finalAddRequestXml);</script></con:config></con:testStep><con:properties><con:property><con:name>initialValue</con:name><con:value>49</con:value></con:property></con:properties></con:testCase><con:properties/></con:testSuite><con:properties><con:property><con:name>author</con:name><con:value>dexter</con:value></con:property></con:properties><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/></con:soapui-project>
