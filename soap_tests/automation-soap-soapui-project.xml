@@ -305,4 +305,12 @@
  //Fetching project level properties
  def project = testRunner.testCase.testSuite.project;
  project.setPropertyValue('author','dexter');
- project.getPropertyValue('author');</script></con:config></con:testStep><con:properties><con:property><con:name>initialValue</con:name><con:value>49</con:value></con:property></con:properties></con:testCase><con:properties/></con:testSuite><con:properties><con:property><con:name>author</con:name><con:value>dexter</con:value></con:property></con:properties><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/></con:soapui-project>
+ project.getPropertyValue('author');
+
+ //Parsing xml
+ import com.eviware.soapui.support.XmlHolder;
+
+ def addXmlReqContent = testRunner.testCase.testSuite.testCases['add'].testSteps['Add'].getPropertyValue('Request');
+
+ //adding xml content to xml parser
+ </script></con:config></con:testStep><con:properties><con:property><con:name>initialValue</con:name><con:value>49</con:value></con:property></con:properties></con:testCase><con:properties/></con:testSuite><con:properties><con:property><con:name>author</con:name><con:value>dexter</con:value></con:property></con:properties><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/></con:soapui-project>
