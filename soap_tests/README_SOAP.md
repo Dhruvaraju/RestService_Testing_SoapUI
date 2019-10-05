@@ -98,10 +98,11 @@ Testing SOAP api's with soap ui and automating them.
     ```
     declare namespace ns1='http://tempuri.org/';
     declare namespace soap='http://www.w3.org/2003/05/soap-envelope';
-    count(//ns1:AddResult) in expected tab give 1 ```
+    count(//ns1:AddResult) in expected tab give 1 
+    ```
 
-    > To Execute all test cases:
-    > Double click on testesuite and click play button, it will run all the test cases and show results
+> To Execute all test cases:
+> Double click on testesuite and click play button, it will run all the test cases and show results
 ### Properties project level, Test Suite Level, Test Case Level getting and setting them.
 - Project Level
     - Click on project >> Bottom left side we will be able to see properties, beside it custom properties will be available
