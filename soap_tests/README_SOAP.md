@@ -226,7 +226,7 @@ getting project value:
 - setting project var ```project.setPropertyValue('author','dexter');```
  - getting project var ```project.getPropertyValue('author');```
 
- parsing xmls:
+ ### parsing xmls:
  - To parse xml in groovy we need to import a library called XmlHolder
  - Then we need to fetch the request content
  - Finally set the request xml cotent in xmlholder object to parse it and use it for manipulating data in it
