@@ -204,3 +204,18 @@ Groovy Script Variables: (To run groovy scripts just click play button on the ed
     - Finally fetch the property by invoking getPropertyValue like getPropertyValue("addProperty001")
     eg: testRunner.testCase.testSuite.testCases["add"].getPropertyValue("addProperty001");
         testRunner.testCase.testSuite.testCases['add'].getPropertyValue('addProperty001'); // Single quote or double both works
+- For Setting property to a test case use setPropertyValue('propertyName','PropertyValue');
+- Eg: testRunner.testCase.testSuite.testCases['add'].setPropertyValue('setFromScript','IamFromScript');
+
+Fetching the request of a test case:
+- Request is a property  for the test case we can get it by getting the 'Request' value of the test step
+- eg: testRunner.testCase.testSuite.testCases['add'].testSteps['Add'].getPropertyValue('Request');
+
+Defining variables in groovy script
+- keyword 'def' id used to initiate a variable in groovy script
+- eg: def addTest = testRunner.testCase.testSuite.testCases['add']; // now we can use addTest to extarct properties from it.
+
+getting project value:
+- def project = testRunner.testCase.testSuite.project;
+- setting project var //project.setPropertyValue('author','dexter');
+ - getting project var //project.getPropertyValue('author');
