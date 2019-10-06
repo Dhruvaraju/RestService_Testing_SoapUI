@@ -273,3 +273,14 @@ def addRequest = new XmlHolder(addXmlReqContent);
  def contextAddTestStep = new WsdlTestRunContext(addTestStep);
  addTestStep.run(testRunner,contextAddTestStep );
 ```
+
+### Automating all arthematic ops using groovy script
+
+> We will add 49 and 51 then get the result, substract 50 from it then divide it by 10, then multiple it with 20
+- Entire script is availabe in the project Automation_Soap testcase script test step CompleteAutomation
+- assert function is used to validate the response to a value.
+- if assertion is sucessful the script continues execution else the script stops executing
+
+``` assert addResult == '100' ```
+
+> The End
