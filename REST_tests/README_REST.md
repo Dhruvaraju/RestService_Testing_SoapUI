@@ -57,3 +57,9 @@ ved | 0ahUKEwj_it32t4rlAhUlhuYKHV3lCgsQ4dUDCAo | Query
 uact | 5 | Query
 
 > Here the target resource is google's **Search** api.
+
+### Example REST API
+- we will consider an imagianry petstore for our REST testing
+- http://petstore.swagger.io/
+- REST apis are documented by a file called swagger.
+- An example swagger is present in REST_TESTS >> swagger.files folder with name petStore_example_REST.json
