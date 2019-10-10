@@ -24,7 +24,7 @@ Testing REST api's with soap ui and automating them.
 
 #### GET
 - Used to extract information from a URL - Target resource.
-- Will not alter the data, No other effect on data or target resource, only retrival
+- Will not alter the data, No other effect on data or target resource, only retrieval
 #### POST
 - Used to send data to update in the server, like Customer details update.
 #### PUT
@@ -59,19 +59,19 @@ uact | 5 | Query
 > Here the target resource is google's **Search** api.
 
 ### Example REST API
-- we will consider an imagianry petstore for our REST testing
+- we will consider an imaginary pet store for our REST testing
 - http://petstore.swagger.io/
 - REST apis are documented by a file called swagger.
 - An example swagger is present in REST_TESTS >> swagger.files folder with name petStore_example_REST.json
-- import this swagger to Soapui project >> import swagger >> click on generate wadl 
+- import this swagger to Soap-ui project >> import swagger >> click on generate WADL 
 - With WADL you can import all the URL at a single instance
 
-### Petstore example 
+### Pet store example 
 
-> Open the json file in swagger editor or navigate to url http://petstore.swagger.io/ 
+> Open the JSON file in swagger editor or navigate to URL http://petstore.swagger.io/ 
 > This location will explain the service, URLs we need to use to access them and resources and parameters that are required to access it.
 
-- Petstore has 3 apis:
+- Pet store has 3 APIs:
 #### Pet - Provides details about pet
 
 URL | HTTP Method  | Description 
@@ -109,16 +109,16 @@ URL | HTTP Method  | Description
 > We can test this resources now, By adding the JSON input but we cannot run assertions.
 > To run assertions on this resources we need to create test suite and test cases
 
-### Creating a testsuite and test case from imported swagger
-- Right Click on Imported swagger >> Click on Generate Testsuite >> A pop up will appear
-- Select One test case for each resource if we want to test each resource seperate.
+### Creating a test suite and test case from imported swagger
+- Right Click on Imported swagger >> Click on Generate Test suite >> A pop up will appear
+- Select One test case for each resource if we want to test each resource separate.
 - Select Single Test Case with one request for each method, if you want to test all in a single test case or you want to automate them
 - Select all resources by clicking select all and click ok
 
 ### Create TestSuite, TestCase and TestStep from project
-- Right Click on projct >> Select New TestSuite >> Name It >> click Ok
-- Right Click on Testsuite >> Select New TestCase >> Name it >> Click Ok
-- Right Click on TestSUite >> Select Addstep >> RestRequest >> Name it >> Pop up appears select appropriate REST Resquest >> Click Ok
+- Right Click on project >> Select New TestSuite >> Name It >> click Ok
+- Right Click on Test suite >> Select New TestCase >> Name it >> Click Ok
+- Right Click on TestSuite >> Select Add step >> RestRequest >> Name it >> Pop up appears select appropriate REST Resquest >> Click Ok
 
 > Group of TestSteps called as TestCase.
 > Group of TestCases called as TestSuite.
@@ -147,3 +147,32 @@ To make the user POST called added the below request json in media type and clic
 - To get the above added user details added a new test step with /user/{userName} get request named it getuser.
 - In the request tab you will see a template variable add value as dexter to get the user details.
 - Template means the variable present is a path parameter.
+
+### Basic Assertions
+- To add an assertion, click on the '+' symbol beside your URL
+- Once you add assertion it runs and in assertion tab it turns green if it is sucessful, turns to red if it fails.
+- We can edit assertion by double clicking on the assertion, in the assertion tab.
+
+#### Contains assertion
+To check if the response contains specific test
+- Property Content >> Select Contains >> Add >> Provide text you want to check >> click ok
+- Added check to see if '0' is available in the response.
+- **Not Contains** assertion working in the same way, provide the text which should not be in response.
+- Added not contains assertion to check that 'failed' is not in the response.
+
+#### Compliance Status and Standards assertions
+##### Valid http Code assertion
+- Checks if the status code returned in response is equal to the one provided.
+- Compliance Status >> Valid HTTP Status Codes >> Provide the status code in pop up >> Click Ok // Check for 200 added
+
+##### InValid http status code assertion
+- Checks if the status code returned in response is not equal to the one provided.
+- Compliance Status >> Invalid HTTP Status codes >> Provide status code in popup >> click ok //Check for 400 added
+
+##### Schema compliance
+- Checks if the response object returned is a compliant schema with the WADL generated from swagger
+- Compliance Status >> Schema Compliance >> Pop up to compare WADL >> click ok
+
+### SLA assertion 
+- Checks if the response is returned in amount of milliseconds provided
+- SLA >> Response SLA >> Provide time in milliseconds >> click Ok
