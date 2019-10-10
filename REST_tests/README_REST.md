@@ -63,3 +63,45 @@ uact | 5 | Query
 - http://petstore.swagger.io/
 - REST apis are documented by a file called swagger.
 - An example swagger is present in REST_TESTS >> swagger.files folder with name petStore_example_REST.json
+- import this swagger to Soapui project >> import swagger >> click on generate wadl 
+- With WADL you can import all the URL at a single instance
+
+### Petstore example 
+
+> Open the json file in swagger editor or navigate to url http://petstore.swagger.io/ 
+> This location will explain the service, URLs we need to use to access them and resources and parameters that are required to access it.
+
+- Petstore has 3 apis:
+#### Pet - Provides details about pet
+
+URL | HTTP Method  | Description 
+--------------------|------------------------|---------------------
+/pet | POST | Add a new pet to store
+/pet | PUT | Update an existing pet
+/pet/findbystatus | GET | Lists pets by status
+/pet/{petId} | GET | Find a pet by Id
+/pet/{petId} | POST | Updates a pet in the store with form data
+/pet/{petId} | DELETE | Deletes a pet from store
+/pet/{petId}/uploadImage | POST | Uploads an image
+
+#### Store - Provides details about inventory
+
+URL | HTTP Method  | Description 
+--------------------|------------------------|---------------------
+/store/inventory | GET | Returns pet inventories by status
+/store/order | POST | Place an order for a pet
+/store/order/{orderId} | GET | Find purchase order by ID
+/store/order/{orderId} | DELETE | Deletes a purchase order by Id
+
+#### User - User Access management
+
+URL | HTTP Method  | Description 
+--------------------|------------------------|---------------------
+/user | POST | Creates a user
+/user/createWithArray | POST | Creates list of users with given input array
+/user/createWithList | POST | Creates list of users with given input array
+/user/login | GET | Logs in a user
+/user/logout | GET | Logs out a user
+/user/{userName} | GET | Get user by username
+/user/{userName} | PUT | Update user
+/user/{userName} | DELETE | Delete User

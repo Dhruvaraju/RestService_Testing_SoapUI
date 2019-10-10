@@ -1,0 +1,365 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<application xmlns="http://wadl.dev.java.net/2009/02">
+  <doc xml:lang="en" title="Swagger Petstore">This is a sample server Petstore server.  You can find out more about     Swagger at [http://swagger.io](http://swagger.io) or on [irc.freenode.net, #swagger](http://swagger.io/irc/).      For this sample, you can use the api key `special-key` to test the authorization     filters.</doc>
+  <resources base="http://petstore.swagger.io/v2">
+    <resource path="pet" id="/pet">
+      <doc xml:lang="en" title="/pet"/>
+      <method name="POST" id="addPet">
+        <doc xml:lang="en" title="addPet">Add a new pet to the store</doc>
+        <request>
+          <representation mediaType="application/json"/>
+          <representation mediaType="application/xml"/>
+        </request>
+        <response status="405">
+          <representation mediaType="application/xml"/>
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="">
+          <representation mediaType="application/json"/>
+          <representation mediaType="application/xml"/>
+        </response>
+      </method>
+      <method name="PUT" id="updatePet">
+        <doc xml:lang="en" title="updatePet">Update an existing pet</doc>
+        <request>
+          <representation mediaType="application/json"/>
+          <representation mediaType="application/xml"/>
+        </request>
+        <response status="400">
+          <representation mediaType="application/xml"/>
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="404">
+          <representation mediaType="application/xml"/>
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="405">
+          <representation mediaType="application/xml"/>
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="">
+          <representation mediaType="application/json"/>
+          <representation mediaType="application/xml"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="pet/findByStatus" id="/pet/findByStatus">
+      <doc xml:lang="en" title="/pet/findByStatus"/>
+      <method name="GET" id="findPetsByStatus">
+        <doc xml:lang="en" title="findPetsByStatus">Multiple status values can be provided with comma separated strings
+Finds Pets by status</doc>
+        <request>
+          <param name="status" type="xs:string" required="true" default="" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <doc xml:lang="en" title="status Parameter">Status values that need to be considered for filter</doc>
+          </param>
+        </request>
+        <response status="200">
+          <representation mediaType="application/xml"/>
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="400">
+          <representation mediaType="application/xml"/>
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="pet/findByTags" id="/pet/findByTags">
+      <doc xml:lang="en" title="/pet/findByTags"/>
+      <method name="GET" id="findPetsByTags">
+        <doc xml:lang="en" title="findPetsByTags">Muliple tags can be provided with comma separated strings. Use         tag1, tag2, tag3 for testing.
+Finds Pets by tags</doc>
+        <request>
+          <param name="tags" type="xs:string" required="true" default="" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <doc xml:lang="en" title="tags Parameter">Tags to filter by</doc>
+          </param>
+        </request>
+        <response status="200">
+          <representation mediaType="application/xml"/>
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="400">
+          <representation mediaType="application/xml"/>
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="pet/{petId}" id="/pet/{petId}">
+      <doc xml:lang="en" title="/pet/{petId}"/>
+      <method name="GET" id="getPetById">
+        <doc xml:lang="en" title="getPetById">Returns a single pet
+Find pet by ID</doc>
+        <request>
+          <param name="petId" type="xs:string" required="true" default="" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <doc xml:lang="en" title="petId Parameter">ID of pet to return</doc>
+          </param>
+        </request>
+        <response status="200">
+          <representation mediaType="application/xml"/>
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="400">
+          <representation mediaType="application/xml"/>
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="404">
+          <representation mediaType="application/xml"/>
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+      <method name="POST" id="updatePetWithForm">
+        <doc xml:lang="en" title="updatePetWithForm">Updates a pet in the store with form data</doc>
+        <request>
+          <param name="petId" type="xs:string" required="true" default="" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <doc xml:lang="en" title="petId Parameter">ID of pet that needs to be updated</doc>
+          </param>
+          <param name="name" type="xs:string" required="false" default="" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <doc xml:lang="en" title="name Parameter">Updated name of the pet</doc>
+          </param>
+          <param name="status" type="xs:string" required="false" default="" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <doc xml:lang="en" title="status Parameter">Updated status of the pet</doc>
+          </param>
+          <representation mediaType="application/x-www-form-urlencoded"/>
+        </request>
+        <response status="405">
+          <representation mediaType="application/xml"/>
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="">
+          <representation mediaType="application/x-www-form-urlencoded"/>
+        </response>
+      </method>
+      <method name="DELETE" id="deletePet">
+        <doc xml:lang="en" title="deletePet">Deletes a pet</doc>
+        <request>
+          <param name="api_key" type="xs:string" required="false" default="" style="header" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+          <param name="petId" type="xs:string" required="true" default="" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <doc xml:lang="en" title="petId Parameter">Pet id to delete</doc>
+          </param>
+        </request>
+        <response status="400">
+          <representation mediaType="application/xml"/>
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="404">
+          <representation mediaType="application/xml"/>
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="pet/{petId}/uploadImage" id="/pet/{petId}/uploadImage">
+      <doc xml:lang="en" title="/pet/{petId}/uploadImage"/>
+      <method name="POST" id="uploadFile">
+        <doc xml:lang="en" title="uploadFile">uploads an image</doc>
+        <request>
+          <param name="petId" type="xs:string" required="true" default="" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <doc xml:lang="en" title="petId Parameter">ID of pet to update</doc>
+          </param>
+          <param name="additionalMetadata" type="xs:string" required="false" default="" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <doc xml:lang="en" title="additionalMetadata Parameter">Additional data to pass to server</doc>
+          </param>
+          <param name="file" type="xs:string" required="false" default="" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <doc xml:lang="en" title="file Parameter">file to upload</doc>
+          </param>
+          <representation mediaType="multipart/form-data"/>
+        </request>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="">
+          <representation mediaType="multipart/form-data"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="store/inventory" id="/store/inventory">
+      <doc xml:lang="en" title="/store/inventory"/>
+      <method name="GET" id="getInventory">
+        <doc xml:lang="en" title="getInventory">Returns a map of status codes to quantities
+Returns pet inventories by status</doc>
+        <request/>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="store/order" id="/store/order">
+      <doc xml:lang="en" title="/store/order"/>
+      <method name="POST" id="placeOrder">
+        <doc xml:lang="en" title="placeOrder">Place an order for a pet</doc>
+        <request/>
+        <response status="200">
+          <representation mediaType="application/xml"/>
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="400">
+          <representation mediaType="application/xml"/>
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="store/order/{orderId}" id="/store/order/{orderId}">
+      <doc xml:lang="en" title="/store/order/{orderId}"/>
+      <method name="GET" id="getOrderById">
+        <doc xml:lang="en" title="getOrderById">For valid response try integer IDs with value >= 1 and &lt;= 10.         Other values will generated exceptions
+Find purchase order by ID</doc>
+        <request>
+          <param name="orderId" type="xs:string" required="true" default="" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <doc xml:lang="en" title="orderId Parameter">ID of pet that needs to be fetched</doc>
+          </param>
+        </request>
+        <response status="200">
+          <representation mediaType="application/xml"/>
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="400">
+          <representation mediaType="application/xml"/>
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="404">
+          <representation mediaType="application/xml"/>
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+      <method name="DELETE" id="deleteOrder">
+        <doc xml:lang="en" title="deleteOrder">For valid response try integer IDs with positive integer value.         Negative or non-integer values will generate API errors
+Delete purchase order by ID</doc>
+        <request>
+          <param name="orderId" type="xs:string" required="true" default="" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <doc xml:lang="en" title="orderId Parameter">ID of the order that needs to be deleted</doc>
+          </param>
+        </request>
+        <response status="400">
+          <representation mediaType="application/xml"/>
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="404">
+          <representation mediaType="application/xml"/>
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="user" id="/user">
+      <doc xml:lang="en" title="/user"/>
+      <method name="POST" id="createUser">
+        <doc xml:lang="en" title="createUser">This can only be done by the logged in user.
+Create user</doc>
+        <request/>
+        <response status="">
+          <representation mediaType="application/xml"/>
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="user/createWithArray" id="/user/createWithArray">
+      <doc xml:lang="en" title="/user/createWithArray"/>
+      <method name="POST" id="createUsersWithArrayInput">
+        <doc xml:lang="en" title="createUsersWithArrayInput">Creates list of users with given input array</doc>
+        <request/>
+        <response status="">
+          <representation mediaType="application/xml"/>
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="user/createWithList" id="/user/createWithList">
+      <doc xml:lang="en" title="/user/createWithList"/>
+      <method name="POST" id="createUsersWithListInput">
+        <doc xml:lang="en" title="createUsersWithListInput">Creates list of users with given input array</doc>
+        <request/>
+        <response status="">
+          <representation mediaType="application/xml"/>
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="user/login" id="/user/login">
+      <doc xml:lang="en" title="/user/login"/>
+      <method name="GET" id="loginUser">
+        <doc xml:lang="en" title="loginUser">Logs user into the system</doc>
+        <request>
+          <param name="username" type="xs:string" required="true" default="" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <doc xml:lang="en" title="username Parameter">The user name for login</doc>
+          </param>
+          <param name="password" type="xs:string" required="true" default="" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <doc xml:lang="en" title="password Parameter">The password for login in clear text</doc>
+          </param>
+        </request>
+        <response status="200">
+          <representation mediaType="application/xml"/>
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="400">
+          <representation mediaType="application/xml"/>
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="user/logout" id="/user/logout">
+      <doc xml:lang="en" title="/user/logout"/>
+      <method name="GET" id="logoutUser">
+        <doc xml:lang="en" title="logoutUser">Logs out current logged in user session</doc>
+        <request/>
+        <response status="">
+          <representation mediaType="application/xml"/>
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="user/{username}" id="/user/{username}">
+      <doc xml:lang="en" title="/user/{username}"/>
+      <method name="GET" id="getUserByName">
+        <doc xml:lang="en" title="getUserByName">Get user by user name</doc>
+        <request>
+          <param name="username" type="xs:string" required="true" default="" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <doc xml:lang="en" title="username Parameter">The name that needs to be fetched. Use user1 for testing.</doc>
+          </param>
+        </request>
+        <response status="200">
+          <representation mediaType="application/xml"/>
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="400">
+          <representation mediaType="application/xml"/>
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="404">
+          <representation mediaType="application/xml"/>
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+      <method name="PUT" id="updateUser">
+        <doc xml:lang="en" title="updateUser">This can only be done by the logged in user.
+Updated user</doc>
+        <request>
+          <param name="username" type="xs:string" required="true" default="" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <doc xml:lang="en" title="username Parameter">name that need to be updated</doc>
+          </param>
+        </request>
+        <response status="400">
+          <representation mediaType="application/xml"/>
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="404">
+          <representation mediaType="application/xml"/>
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+      <method name="DELETE" id="deleteUser">
+        <doc xml:lang="en" title="deleteUser">This can only be done by the logged in user.
+Delete user</doc>
+        <request>
+          <param name="username" type="xs:string" required="true" default="" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <doc xml:lang="en" title="username Parameter">The name that needs to be deleted</doc>
+          </param>
+        </request>
+        <response status="400">
+          <representation mediaType="application/xml"/>
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="404">
+          <representation mediaType="application/xml"/>
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+  </resources>
+</application>
