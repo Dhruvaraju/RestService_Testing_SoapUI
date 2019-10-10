@@ -105,3 +105,45 @@ URL | HTTP Method  | Description
 /user/{userName} | GET | Get user by username
 /user/{userName} | PUT | Update user
 /user/{userName} | DELETE | Delete User
+
+> We can test this resources now, By adding the JSON input but we cannot run assertions.
+> To run assertions on this resources we need to create test suite and test cases
+
+### Creating a testsuite and test case from imported swagger
+- Right Click on Imported swagger >> Click on Generate Testsuite >> A pop up will appear
+- Select One test case for each resource if we want to test each resource seperate.
+- Select Single Test Case with one request for each method, if you want to test all in a single test case or you want to automate them
+- Select all resources by clicking select all and click ok
+
+### Create TestSuite, TestCase and TestStep from project
+- Right Click on projct >> Select New TestSuite >> Name It >> click Ok
+- Right Click on Testsuite >> Select New TestCase >> Name it >> Click Ok
+- Right Click on TestSUite >> Select Addstep >> RestRequest >> Name it >> Pop up appears select appropriate REST Resquest >> Click Ok
+
+> Group of TestSteps called as TestCase.
+> Group of TestCases called as TestSuite.
+> Group of TestSuites called as Project.
+
+- Created a testsuite named alphaTest, testCase as userTest and added testStep create user by selecting /user post resource.
+
+### Simple Assertions
+#### Creating User
+To make the user POST called added the below request json in media type and click on the play button, It will show status as 200.
+
+```
+{
+  "id": 9410102019,
+  "username": "dexter",
+  "firstName": "dexter",
+  "lastName": "morgan",
+  "email": "dexter@test.com",
+  "password": "dextermorgan",
+  "phone": "3899834567",
+  "userStatus": 0
+} 
+```
+
+#### Getting User Details
+- To get the above added user details added a new test step with /user/{userName} get request named it getuser.
+- In the request tab you will see a template variable add value as dexter to get the user details.
+- Template means the variable present is a path parameter.
