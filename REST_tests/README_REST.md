@@ -173,6 +173,6 @@ To check if the response contains specific test
 - Checks if the response object returned is a compliant schema with the WADL generated from swagger
 - Compliance Status >> Schema Compliance >> Pop up to compare WADL >> click ok
 
-### SLA assertion 
+#### SLA assertion 
 - Checks if the response is returned in amount of milliseconds provided
 - SLA >> Response SLA >> Provide time in milliseconds >> click Ok
