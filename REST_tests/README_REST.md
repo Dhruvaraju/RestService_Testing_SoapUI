@@ -201,7 +201,7 @@ Example Json:
 }
 
 We can get id from tags attribute in 2 ways:
-Dot Notation: $.tags[0].id
-Bracket Notation: $['tags'][0]['id']
+Dot Notation: ** $.tags[0].id **
+Bracket Notation: ** $['tags'][0]['id'] **
 
 ```
