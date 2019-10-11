@@ -173,6 +173,35 @@ To check if the response contains specific test
 - Checks if the response object returned is a compliant schema with the WADL generated from swagger
 - Compliance Status >> Schema Compliance >> Pop up to compare WADL >> click ok
 
-#### SLA assertion 
+##### SLA assertion 
 - Checks if the response is returned in amount of milliseconds provided
 - SLA >> Response SLA >> Provide time in milliseconds >> click Ok
+
+### JSONPath Match Assertion
+- Checks the value of a certain JSON path with value provided
+- We have 2 notations to give JSON paths
+  - Dot Notation
+  - Bracket Notation
+
+```
+Example Json:
+{
+   "id": 49001,
+   "category":    {
+      "id": 4001,
+      "name": "Domestic"
+   },
+   "name": "Dogs",
+   "photoUrls": ["NA"],
+   "tags": [   {
+      "id": 9001,
+      "name": "Low Cost"
+   }],
+   "status": "available"
+}
+
+We can get id from tags attribute in 2 ways:
+Dot Notation: $.tags[0].id
+Bracket Notation: $['tags'][0]['id']
+
+```
