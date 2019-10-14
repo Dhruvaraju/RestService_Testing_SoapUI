@@ -203,5 +203,20 @@ Example Json:
 ```
 
 We can get id from tags attribute in 2 ways:
-Dot Notation: ``` $.tags[0].id ```
-Bracket Notation: ``` $['tags'][0]['id'] ```
+- Dot Notation: ``` $.tags[0].id ```
+- Bracket Notation: ``` $['tags'][0]['id'] ```
+
+### Properties project level, Test Suite Level, Test Case Level getting them.
+- Project Level
+    - Click on project >> Bottom left side we will be able to see properties, beside it custom properties will be available
+    - We can add a variable and assign it a value by clicking '+'
+    - To access project level variables ${#Project#propertyname} 
+    ``` ${#Project#ProjectProperty} will fetch the 'This_is_project_property' ```
+- Test Suite Level
+    - Click on TestSuite >> custom Properties >> Add properties
+    - To Access TestSuite Property ${#TestSuite#Property} 
+    ``` ${#TestSuite#TestSuiteProperty} return 'This_is_testSuite_property' ```
+- Test case Level
+    - Click on TestSuite >> custom Properties >> Add properties
+    - To Access TestCase Property ${#TestCase#Property}  
+    ``` ${#TestCase#TestCaseProperty} return 'This_is_TestCase_property' ```

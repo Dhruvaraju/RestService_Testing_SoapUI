@@ -106,7 +106,7 @@ Testing SOAP api's with soap ui and automating them.
 ### Properties project level, Test Suite Level, Test Case Level getting and setting them.
 - Project Level
     - Click on project >> Bottom left side we will be able to see properties, beside it custom properties will be available
-    - We can add a variable and assign it a value by clciking '+'
+    - We can add a variable and assign it a value by clicking '+'
     - To access project level variables ${#Project#Variablename} 
     ``` ${#Project#adminUser} will fetch Dexter in attached project ```
 - Test Suite Level
@@ -118,7 +118,7 @@ Testing SOAP api's with soap ui and automating them.
     - To Access TestCase Property ${#TestCase#Property}  
     ``` ${#TestCase#egProperty} return TestData ```
 
-### Adding Data in reguest:
+### Adding Data in request:
 - To add data in request nodes simple add the syntax as mentioned above
 - We can alos add data by right click in the node text area >> GetData >> which which var you want
 - SoapUi will generate the syntax for us
@@ -185,7 +185,7 @@ declare namespace ns1='http://tempuri.org/';
 ```
 > Note: Even if we have something appended to node we need to prefix it with namespace eg: tem:intA defined as ns1:intA
 
-## Automating test Scritps:
+## Automating test Scripts:
 ### Introduction to Groovy:
 - Create a new project with all tests in a single test case name it as automation_soap
 - create a new test suite create test cases to do all arthematic operations
