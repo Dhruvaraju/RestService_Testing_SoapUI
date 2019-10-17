@@ -297,3 +297,13 @@ messageExchange.requestHeaders //to get all request headers
 messageExchnage.responseHeaders //all Response headers
 messageExchange.timeTaken // to get time taken by resourse
 ```
+### Parsing JSON response
+- JSON Slurper is used to parse JSON in groovy.
+- import statement ``` import groovy.json.JsonSlurper; ```
+```
+import groovy.json.JsonSlurper;
+def response = messageExcahnge.response.responseContent;
+def responseJson = new JsonSlurper().parseText(response);
+log.info responseJson.jsonparentattribute.fieldattribute;
+```
+
