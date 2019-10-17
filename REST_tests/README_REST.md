@@ -280,3 +280,20 @@ def project = testRunner.testCase.testSuite.project;
 project.setPropertyValue('author','dexter');
 project.getPropertyValue('author');
 ```
+
+### Invoking Groovy Script by using Test Assertion
+- Script Assertion is invoked with three variables.
+    - Log
+    - Context
+    - messageExchange
+### messageExchange
+- The messageExchange object available in the script exposes a bunch of properties related to the last request/response.
+- Scope of messageExchange is the current testStep, that too it can access only request and response.
+- Additional methods that can be invoked from messageExchange can be see at [javadoc](https://www.soapui.org/apidocs/com/eviware/soapui/model/iface/MessageExchange.html)
+- Fetching properties using messageExchange
+
+``` 
+messageExchange.requestHeaders //to get all request headers
+messageExchnage.responseHeaders //all Response headers
+messageExchange.timeTaken // to get time taken by resourse
+```
