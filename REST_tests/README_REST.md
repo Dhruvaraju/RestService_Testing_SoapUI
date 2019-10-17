@@ -220,3 +220,63 @@ We can get id from tags attribute in 2 ways:
     - Click on TestSuite >> custom Properties >> Add properties
     - To Access TestCase Property ${#TestCase#Property}  
     ``` ${#TestCase#TestCaseProperty} return 'This_is_TestCase_property' ```
+
+### Automating Rest Tests
+
+> Test automation is done using groovy script in Soap UI.
+
+- Groovy scripts can be done in 2 ways
+    - By adding a new test step as groovy-script
+    - By adding a script assertion
+
+### By using New test Step as Groovy Script
+- Add a new test case >> Add a new Test Step >> Groovy Script
+- This will be invoked with 3 variables
+    - log
+    - Context
+    - TestRunner
+
+### Log
+- Log is used to print information in console
+- you can invoke console logging from script step editor as log.info('Your Message')
+``` log.info('Test script Initiation') ```
+### Context
+- Context is used to fetch test case level properties.
+- Scope of context is testcase.
+- Syntax for fetching context variables context.expand('${#TestCase#initialValue}');
+``` log.info ('Value of Test case level variable initialValue is : '+context.expand('${#TestCase#initialValue}')); ```
+### TestRunner
+- TestRunner can access all properties in a project
+- TestRunner Scope is project.
+- Any property testSuite level, Testcase level, test step level, project level can be accessed
+    - But while accessing property values we need to follow hierarchy 
+    - Project >> TestSuite >> TestCase >> TestStep
+- How to access a testcase property from script is explained below
+    - Initially we will declare testRunner then we have to state current location  //testRunner.testCase
+    - Since we have to get property from another testCase we need to access it parent element testSuite // testRunner.testCase.testSuite
+    - from testSuite get hold of the testCases array and get the testCase by its name  //testRunner.testCase.testSuite.testCases["testcasename"]
+    - Finally fetch the property by invoking getPropertyValue like getPropertyValue("propertyname")
+```
+testRunner.testCase.testSuite.testCases["userTest"].getPropertyValue("TestCaseProperty");
+testRunner.testCase.testSuite.testCases['userTest'].getPropertyValue('TestCaseProperty'); // Single quote or double both works
+```
+- For Setting property to a test case use setPropertyValue('propertyName','PropertyValue');
+```
+testRunner.testCase.testSuite.testCases['userTest'].setPropertyValue('setFromScript','IamFromScript');
+```
+Fetching the request of a test case:
+- Request is a property  for the test case we can get it by getting the 'Request' property of a test step.
+```
+testRunner.testCase.testSuite.testCases['userTest'].testSteps['createUserPost'].getPropertyValue('Request');
+```
+### Defining variables in groovy script
+- keyword 'def' id used to initiate a variable in groovy script
+```
+def userTest = testRunner.testCase.testSuite.testCases['userTest']; // now we can use addTest to extarct properties from it.
+```
+### Getting, Setting project variables:
+```
+def project = testRunner.testCase.testSuite.project;
+project.setPropertyValue('author','dexter');
+project.getPropertyValue('author');
+```

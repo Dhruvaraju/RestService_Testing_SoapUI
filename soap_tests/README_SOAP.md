@@ -188,21 +188,21 @@ declare namespace ns1='http://tempuri.org/';
 ## Automating test Scripts:
 ### Introduction to Groovy:
 - Create a new project with all tests in a single test case name it as automation_soap
-- create a new test suite create test cases to do all arthematic operations
+- create a new test suite create test cases to do all arithmetic operations
 - we can add script as a step to any of the test case or we can create a new testcase and add only script
 - right click on test suite >> new test case >> name it >> add step >> groovy script
 - scripts are invoked with log, context and test runner variables
 
 ### Groovy Script Variables: (To run groovy scripts just click play button on the editor)
-- Log is used to print infromation in console
+- Log is used to print information in console
     - you can invoke console logging from script step editor as log.info('Your Message')
 ``` log.info('Test script Initiation') ```
 - Context is used to fetch test case level properties, hence context scope is testcase
     - Syntax for fetching context variables context.expand('${#TestCase#initialValue}');
 ``` log.info ('Value of Test case level variable initialValue is : '+context.expand('${#TestCase#initialValue}')); ```
 - testRunner is used to access all properties in a project
-    - Any property testSuite level, Testcase level, teststep level, project level can be accessed
-    - But while accessing we need to follow the hierachy 
+    - Any property testSuite level, Testcase level, test step level, project level can be accessed
+    - But while accessing we need to follow the hierarchy 
     - Project >> TestSuite >> TestCase >> TestStep
     - eg: we are trying to get add testcase property from script it is explained below
     - Initially we will declare testRunner then we have to state current location  //testRunner.testCase
