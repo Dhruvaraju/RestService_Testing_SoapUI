@@ -1,13 +1,15 @@
-# RestService_Testing_SoapUI
-Learning for the below mentioned courses.
+# Test-Automation-using-SoapUI
 
-What is a webservice?
-How to test a SOAP service?
-How to test a REST service?
-What are the features of SOAPUI?
-How to automate them?
+- What is a webservice?
+- How to test a SOAP service?
+- How to test a REST service?
+- What are the features of SOAPUI?
+- How to automate them?
 
-SOAP related in soap_tests folder
-REST releated in REST_tests
+Soap services and automating them: [Click-Here](https://github.com/Dhruvaraju/test-automation-soapui/blob/master/soap_tests/README_SOAP.md)
+> SOAP related information available under SOAP_Tests folder
+
+REST services and automating them: [Click-Here](https://github.com/Dhruvaraju/test-automation-soapui/blob/master/REST_tests/README_REST.md)
+> Rest related information available under Rest_Tests folder
 
 
